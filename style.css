@@ -35,7 +35,7 @@
     opacity: 0.5;
 }
 
-.header ul .select {
+.header ul li:hover {
     text-decoration: underline;
     text-decoration-color: #59BE29;
     text-decoration-thickness: 2px;
@@ -60,4 +60,113 @@
 
 .header .sign-up-btn:active {
     transform: scale(1.05);
+}
+
+.home-page {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+}
+
+.home-page .description-part {
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-page .description-part .text-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.home-page .image-part {
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page .image-part img {
+    width: 90%;
+}
+
+.text-part .home-btn {
+    padding: 13px 44px;
+    border-radius: 20px 80px 20px 80px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    margin: 10px;
+}
+
+.text-part .home-btn:hover {
+    transform: translateY(5px);
+}
+
+.text-part .home-text {
+    font-size: calc(1vw + 5px);
+    text-transform: uppercase;
+    color: #0A1902;
+}
+
+.text-part .home-title {
+    font-size: calc(4vw + 20px);
+    color: #59BE29;
+    line-height: 1;
+}
+
+.text-part .home-subtitle {
+    font-size: calc(1vw + 1px);
+    color: #0A1902;
+    font-weight: 100;
+    margin: 30px 0;
+}
+
+.home-add-to-cart {
+    background-color: #59BE29;
+    color: #fff;
+    border: none;
+}
+
+.home-learn-more {
+    background-color: #fff;
+    color: #59BE29;
+    box-shadow: 0 10px 20px #1634072a;
+    border: 1px solid #58be2925;
+}
+
+@media (max-width: 700px) {
+    .header {
+        
+    }
+
+    .header img {
+        display: none;
+    }
+
+    .header .sign-up-btn {
+        padding: 10px 30px;
+    }
+
+    .header ul li {
+        font-size: 15px;
+    }
+
+    .home-page .description-part {
+        width: 100%;
+    }
+
+    .home-page .image-part {
+        display: none;
+    }
+
+    .text-part .buttons-part .home-btn{
+        padding: 8px 25px;
+    }
 }
