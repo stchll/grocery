@@ -3,6 +3,12 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Baloo Chettan 2';
+    user-select: none;
+}
+
+::selection {
+    background-color: #59BE29;
+    color: #fff;
 }
 
 .wrap {
@@ -43,7 +49,7 @@
 }
 
 .header .sign-up-btn {
-    padding: 13px 52px ;
+    padding: 13px 52px;
     color: #fff;
     border: none;
     background-color: #59BE29;
@@ -142,9 +148,7 @@
 }
 
 @media (max-width: 700px) {
-    .header {
-        
-    }
+    .header {}
 
     .header img {
         display: none;
@@ -166,7 +170,7 @@
         display: none;
     }
 
-    .text-part .buttons-part .home-btn{
+    .text-part .buttons-part .home-btn {
         padding: 8px 25px;
     }
 }
