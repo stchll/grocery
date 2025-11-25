@@ -7,19 +7,23 @@
     <title>Grocery Store</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:regular,500,600,700,800" rel="stylesheet" />
-    
+    <link rel='stylesheet' href='https://site-assets.fontawesome.com/releases/v7.0.1/css/all.css'>
 </head>
 
 <body>
-    <div class="signup-popup">
+    <div class="signup-popup" id="sig-popup">
         <div class="signup-header">
             <h2>Sign Up</h2>
 
-            <button class="sign-popup-close"></button>
+            <button class="sign-popup-close" id="sig-popup-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="form">
+
         </div>
     </div>
 
-    <div class="wrap">
+    <div class="wrap" id="wrap">
         <div class="header">
             <img src="./img/logo.png" alt="Grocery">
 
@@ -30,31 +34,39 @@
                 <li>Pricing</li>
             </ul>
 
-            <button class="sign-up-btn">Sign Up</button>
+            <button class="sign-up-btn" id="sig-up-enter-btn">Sign Up</button>
         </div>
 
         <div class="home-page">
-            <div class="description-part">
-                <div class="text-part">
-                    <h3 class="home-text">fresh fruit for you</h3>
+            <div class="home-content">
+                <div class="description-part">
+                    <div class="text-part">
+                        <h3 class="home-text">fresh fruit for you</h3>
 
-                    <h1 class="home-title">Eat as you want</h1>
+                        <h1 class="home-title">Eat as you want</h1>
 
-                    <p class="home-subtitle">Fruit and vegetables should be an important part of your daily diet. They
+                        <p class="home-subtitle">Fruit and vegetables should be an important part of your daily diet. They
                         are naturally good and contain vitamins and minerals that can help to keep you healthy.</p>
 
-                    <div class="buttons-part">
-                        <button class="home-add-to-cart home-btn">Add To Cart</button>
-                        <button class="home-learn-more home-btn">Learn more</button>
+                        <div class="buttons-part">
+                            <button class="home-add-to-cart home-btn">Add To Cart</button>
+                            <button class="home-learn-more home-btn">Learn more</button>
+                        </div>
                     </div>
+                </div>
+
+                <div class="image-part">
+                    <img src="./img/home-img.png">
                 </div>
             </div>
 
-            <div class="image-part">
-                <img src="./img/home-img.png">
+            <div class="scroll-ico">
+                <i class="fa-solid fa-chevrons-down"></i>
             </div>
         </div>
     </div>
+
+    <script src="./main.js"></script>
 </body>
 
 </html>
