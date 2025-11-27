@@ -39,9 +39,138 @@
     }
 }
 
+@keyframes msg-fade-in {
+    0% {
+        top: -50%;
+    }
+
+    100% {
+        top: 10%;
+    }
+}
+
+@keyframes msg-fade-out {
+    0% {
+        top: 10%;
+    }
+
+    100% {
+        top: -50%;
+    }
+}
+
 ::selection {
     background-color: #59BE29;
     color: #fff;
+}
+
+.phone-container {
+    width: 410px;
+    height: 550px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    background-color: #333;
+    border: 5px solid #111;
+    display: none;
+
+    z-index: 50;
+}
+
+.phone-container .image-container {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-container .buttons-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    
+}
+
+.phone-container .call-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 30px;
+    border: none;
+    transition: 0.5s ease;
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.phone-container .phone-title {
+    color: #fff;
+    font-size: 30px;
+}
+
+.phone-container .accept-call {
+    background-color: limegreen;
+}
+
+
+.phone-container .buttons-container .call-btn:hover {
+    transform: scale(1.1);
+}
+
+.phone-container .image-container img {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.message-frame {
+    width: 500px;
+    height: 200px;
+    position: fixed;
+    background-color: rgba(200, 200, 200, 0.1);
+    border: 2px dashed rgba(200,200,200,1);
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 10%;
+    z-index: 15;
+    backdrop-filter: blur(15px);
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    display: none;
+
+    cursor: pointer;
+}
+
+.message-frame .msg-content {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.msg-fade-out-calss {
+    animation: msg-fade-out 1s ease;
+}
+
+.msg-fade-calss {
+    animation: msg-fade-in 1s ease;
+}
+
+.message-frame .msg-fram-instruct {
+    position: absolute;
+    top: 85%;
+    font-weight: 100;
+
 }
 
 .signup-popup {
@@ -73,7 +202,7 @@
     width: 50px;
     height: 50px;
     border-radius: 20px;
-    background-color: red;
+    background-color: #ff4848;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,6 +273,8 @@
     justify-content: space-around;
     align-items: center;
     user-select: none;
+    
+    animation: fade 1s ease;
 }
 
 .header ul {
@@ -197,7 +328,7 @@
 }
 
 .accountContainer img:hover {
-    transform: scaleX(1.3);
+    transform: rotateY(45deg);
 }
 
 .accountContainer button {

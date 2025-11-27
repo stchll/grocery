@@ -73,6 +73,8 @@ const buttons = {
     sig_up_enter_btn: document.getElementById('sig-up-enter-btn'),
     sign_in_btn: document.getElementById('sign-in-btn'),
     sign_out: document.getElementById('sig-out-btn'),
+    accept_call: document.getElementById('accept-call'),
+    decline_call: document.getElementById('decline-call'),
 }
 
 const objects = {
@@ -80,6 +82,18 @@ const objects = {
     user_password: document.getElementById('password-sign'),
     accountContainer: document.getElementById('account-container'),
     account_image: document.getElementById('account-hotbar-img'),
+    msg_frame: document.getElementById('msg-frame'),
+    msg_content: document.getElementById('msg-content'),
+    phone_container: document.getElementById('phone'),
+    accept: document.querySelectorAll('#accept-call'),
+}
+
+const sounds = {
+    message: new Audio('./sounds/message.mp3'),
+    click: new Audio('./sounds/click.mp3'),
+    nokia: new Audio('./sounds/nokia.mp3'),
+    buy_add: new Audio('./sounds/buy-add.mp3'),
+    end_call: new Audio('./sounds/end-call.mp3'),
 }
 
 buttons.sign_out.onclick = function() {
@@ -91,9 +105,40 @@ buttons.sign_out.onclick = function() {
     changeAccount()
 }
 
+function setMessage(content,themeColor) {
+    objects.msg_frame.style.display = 'flex'
+    objects.msg_content.textContent = content
+
+    if (themeColor) {
+        objects.msg_frame.style.borderColor = themeColor
+    } else {
+        objects.msg_frame.style.borderColor = "rgba(200,200,200,1);"
+    }
+
+    sounds.message.currentTime = 0
+    sounds.message.play()
+
+    objects.msg_frame.classList.remove('msg-fade-out-calss');
+    objects.msg_frame.classList.add('msg-fade-calss');
+
+}
+
+objects.msg_frame.onclick = function() {
+    objects.msg_frame.classList.remove('msg-fade-calss');
+    objects.msg_frame.classList.add('msg-fade-out-calss');
+
+    sounds.click.currentTime = 0
+    sounds.click.play()
+
+    setTimeout(() => {
+        objects.msg_frame.style.display = 'none'
+    }, 500);
+}
+
 buttons.sign_in_btn.onclick = function() {
     const iUsername = objects.user_input.value
     const iPassword = objects.user_password.value
+    
 
     if (iUsername && iPassword) {
         let account = trySign(iUsername,iPassword)
@@ -107,12 +152,14 @@ buttons.sign_in_btn.onclick = function() {
 
             frames.signup_popup.style.display = 'none'
 
+            setMessage('Sucsessful , logined!','limegreen')
+
             changeAccount()
         } else {
-            alert('wrong user or password!')
+            setMessage('Wrong user or password!','red')
         }
     } else {
-        alert('you must input one more inputs!')
+        setMessage('Input one more!','red')
     }
     
 }
@@ -130,3 +177,51 @@ buttons.sig_sig_out.onclick = function() {
 
 
 changeAccount()
+
+let phoneRequest = setInterval(function() {
+    let cahnse = Math.floor(Math.random()*5)
+
+    if (cahnse == 4) {
+        setMessage('Vitalik phoned you!','violet')
+
+        setTimeout(()=>{
+            let auto_decline_timeout = setTimeout(()=> {
+                sounds.end_call.currentTime = 0
+                sounds.end_call.play()
+
+                objects.phone_container.style.display = 'none'
+
+                setMessage('You miss Vitalik call , noooo😓😓😓','orange')
+            },10000)
+
+            objects.phone_container.style.display = 'flex'
+
+            sounds.nokia.currentTime = 1
+            sounds.nokia.play()
+
+            clearTimeout(phoneRequest)
+
+            objects.accept.forEach((button)=> {
+                button.onclick = function() {
+                    clearTimeout(auto_decline_timeout)
+
+                    sounds.nokia.pause()
+
+                    objects.phone_container.querySelector('.buttons-container').style.display = 'none'
+
+                    setTimeout(()=> {
+                        sounds.buy_add.currentTime = 0
+                        sounds.buy_add.play()
+
+                        setTimeout(()=> {
+                            sounds.end_call.currentTime = 0
+                            sounds.end_call.play()
+
+                            objects.phone_container.style.display = 'none'
+                        },3000)
+                    },2000)
+                }
+            })
+        },1000)
+    }
+},3000)
