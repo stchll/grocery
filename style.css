@@ -347,6 +347,7 @@
 .stats-page .description-part h3 {
     font-size: 35px;
     margin: 10px 0;
+    font-weight: 500;
 }
 
 .stats-page .description-part .stats-container {
@@ -382,6 +383,7 @@
 h2 {
     color: #59BE29;
     font-size: 35px;
+    font-weight: 400;
 }
 
 .stats-page .description-part .stats-container .stat-card .description-container
