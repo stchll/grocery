@@ -191,8 +191,8 @@ let phoneRequest = setInterval(function() {
 
                 objects.phone_container.style.display = 'none'
 
-                setMessage('You miss Vitalik call , noooo😓😓😓','orange')
-            },10000)
+                setMessage('You miss Vitalik call , noooo😓😓😓','red')
+            },10 * 1000)
 
             objects.phone_container.style.display = 'flex'
 
