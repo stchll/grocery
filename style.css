@@ -528,6 +528,19 @@ p {
 }
 
 
+@media (max-width: 1000px) {
+    .message-frame {
+        width: 300px;
+        height: 150px;
+        top: 5%;
+    }
+
+    .message-frame .msg-content {
+        font-size: 15px;
+        font-weight: 400;
+    }
+}
+
 @media (max-width: 700px) {
     .header {
 
