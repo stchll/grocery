@@ -96,6 +96,8 @@ const sounds = {
     end_call: new Audio('./sounds/end-call.mp3'),
 }
 
+sounds.nokia.volume = 0.2
+
 buttons.sign_out.onclick = function() {
     sessionData.username , sessionData.password = null
 
@@ -182,17 +184,18 @@ let phoneRequest = setInterval(function() {
     let cahnse = Math.floor(Math.random()*5)
 
     if (cahnse == 4) {
-        setMessage('Vitalik phoned you!','violet')
+        setMessage('Someone phoned you!','violet')
 
         setTimeout(()=>{
             let auto_decline_timeout = setTimeout(()=> {
                 sounds.end_call.currentTime = 0
                 sounds.end_call.play()
+                sounds.nokia.pause()
 
                 objects.phone_container.style.display = 'none'
 
                 setMessage('You miss Vitalik call , noooo😓😓😓','red')
-            },10 * 1000)
+            },30 * 1000)
 
             objects.phone_container.style.display = 'flex'
 
