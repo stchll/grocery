@@ -86,6 +86,7 @@ const objects = {
     msg_content: document.getElementById('msg-content'),
     phone_container: document.getElementById('phone'),
     accept: document.querySelectorAll('#accept-call'),
+    disco: document.getElementById('discoFrame'),
 }
 
 const sounds = {
@@ -96,7 +97,7 @@ const sounds = {
     end_call: new Audio('./sounds/end-call.mp3'),
 }
 
-sounds.nokia.volume = 0.2
+sounds.nokia.volume = 1
 
 buttons.sign_out.onclick = function() {
     sessionData.username , sessionData.password = null
@@ -184,7 +185,8 @@ let phoneRequest = setInterval(function() {
     let cahnse = Math.floor(Math.random()*5)
 
     if (cahnse == 4) {
-        setMessage('Someone phoned you!','violet')
+        setMessage('Admin Abuseeeeeee🎉😋😁😍😍🤗🙂😋😂','violet')
+        clearTimeout(phoneRequest)
 
         setTimeout(()=>{
             let auto_decline_timeout = setTimeout(()=> {
@@ -193,13 +195,16 @@ let phoneRequest = setInterval(function() {
                 sounds.nokia.pause()
 
                 objects.phone_container.style.display = 'none'
+                objects.disco.style.display = 'none'
 
                 setMessage('You miss Vitalik call , noooo😓😓😓','red')
             },30 * 1000)
 
             objects.phone_container.style.display = 'flex'
+            objects.disco.style.display = 'flex'
 
-            sounds.nokia.currentTime = 1
+
+            sounds.nokia.currentTime = 5
             sounds.nokia.play()
 
             clearTimeout(phoneRequest)
@@ -221,10 +226,11 @@ let phoneRequest = setInterval(function() {
                             sounds.end_call.play()
 
                             objects.phone_container.style.display = 'none'
+                            objects.disco.style.display = 'none'
                         },3000)
                     },2000)
                 }
             })
-        },1000)
+        },3000)
     }
 },3000)
