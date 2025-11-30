@@ -231,6 +231,6 @@ let phoneRequest = setInterval(function() {
                     },2000)
                 }
             })
-        },3000)
+        },5000)
     }
 },3000)
